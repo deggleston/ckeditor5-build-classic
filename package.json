@@ -1,6 +1,6 @@
 {
   "name": "@deggleston/ckeditor5-build-t3custom",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A modded version of the classic editor build of CKEditor 5 – the best browser-based rich text editor.",
   "keywords": [
     "ckeditor5-build",
@@ -87,5 +87,9 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "dependencies": {
+    "css-loader": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0"
   }
 }
