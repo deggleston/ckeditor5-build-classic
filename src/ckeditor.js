@@ -30,6 +30,10 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 
 import Font from '@ckeditor/ckeditor5-font/src/font';
 
+//import InsertImage from './plugins/insertImage'
+//import SimpleBox from './plugins/simpleBox/simpleBox';
+//import Placeholder from './plugins/placeholder/placeholder';
+
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -83,11 +87,13 @@ ClassicEditor.defaultConfig = {
 	},
 	image: {
 		toolbar: [
+			'imageStyle:alignLeft',
 			'imageStyle:full',
-			'imageStyle:side',
+			'imageStyle:alignRight',
 			'|',
 			'imageTextAlternative'
-		]
+		],
+		styles: [ 'full', 'alignRight', 'alignLeft' ]
 	},
 	table: {
 		contentToolbar: [
@@ -96,6 +102,9 @@ ClassicEditor.defaultConfig = {
 			'mergeTableCells'
 		]
 	},
+	//placeholderConfig: {
+	//	types: [ 'date', 'color', 'first name', 'surname' ]                             // ADDED
+	//},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };
