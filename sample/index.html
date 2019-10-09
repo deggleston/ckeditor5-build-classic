@@ -8,8 +8,11 @@
 			max-width: 800px;
 			margin: 20px auto;
 		}
+		
+
 	</style>
 	<link rel="stylesheet" type="text/css" href="../build/ckeditor5.css">
+	<script src="../node_modules/@ckeditor/ckeditor5-inspector/build/inspector.js"></script>
 </head>
 <body>
 
@@ -25,12 +28,24 @@
 	</figure>
 
 	<p>You can use this sample to validate whether your <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html">custom build</a> works fine.</p>
+	
+	<section class="simple-box">
+		<h1 class="simple-box-title">Box title</h1>
+		<div class="simple-box-description">
+			<p>The description goes here.</p>
+			<ul>
+				<li>It can contain lists,</li>
+				<li>and other block elements like headings.</li>
+			</ul>
+		</div>
+	</section>
 </div>
 
 <script src="../build/ckeditor.js"></script>
 <script>
 	ClassicEditor.create( document.querySelector( '#editor' ) )
 		.then( editor => {
+			CKEditorInspector.attach( editor );
 			window.editor = editor;
 		} )
 		.catch( err => {
