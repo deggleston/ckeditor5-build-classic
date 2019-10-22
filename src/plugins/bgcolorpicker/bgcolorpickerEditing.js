@@ -3,8 +3,6 @@ import BGColorPickerCommand from './bgcolorpickerCommand';
 
 export default class BGColorPickerEditing extends Plugin {
 	init() {
-		console.log( 'BGColorPickerEditing#init() got called' );
-
 		this._defineSchema();
 		this._defineConverters();
 

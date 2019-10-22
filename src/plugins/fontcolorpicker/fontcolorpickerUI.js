@@ -20,8 +20,6 @@ export default class FontColorPickerUI extends Plugin {
 	}
 
 	init() {
-		console.log( 'FontColorPickerUI#init() got called' );
-
 		const editor = this.editor;
 		const command = editor.commands.get( 'fontcolorpicker' );
 		const t = editor.t;
@@ -87,7 +85,9 @@ export default class FontColorPickerUI extends Plugin {
 	_setUpDropdown( dropdown, form, command ) {
 		const editor = this.editor;
 		const t = editor.t;
-		const button = dropdown.buttonView;
+        const button = dropdown.buttonView;
+        const defaultColor = editor.config.get( 'fontcolorConfig.defaultColor' );
+		const swatchColors = editor.config.get( 'fontcolorConfig.colors' );
 
 		dropdown.bind( 'isEnabled' ).to( command );
 		dropdown.panelView.children.add( form );
@@ -110,7 +110,10 @@ export default class FontColorPickerUI extends Plugin {
 
 			if ( command.value ) {
 				form.colorPickr.setColor( command.value, true );
-			}
+            }
+            else {
+                form.colorPickr.setColor( defaultColor, true );
+            }
 
 			form.color = command.value || '';
 			form.colorInputView.select();
@@ -124,8 +127,6 @@ export default class FontColorPickerUI extends Plugin {
 			}
 		} );
 
-		console.log( editor.config.get( 'fontcolorConfig.colors' ) );
-
 		dropdown.panelView.extendTemplate( {
 			attributes: {
 				class: [ 'font-color-picker' ]
@@ -138,8 +139,8 @@ export default class FontColorPickerUI extends Plugin {
 				theme: 'nano',
 				inline: true,
 				showAlways: true,
-				default: editor.config.get( 'fontcolorConfig.defaultColor' ),
-				swatches: editor.config.get( 'fontcolorConfig.colors' ),
+				default: defaultColor,
+				swatches: swatchColors,
 
 				components: {
 
@@ -169,13 +170,11 @@ export default class FontColorPickerUI extends Plugin {
 			} );
 
 			form.colorPickr.on( 'save', ( color, instance ) => {
-				console.log( 'save', color, color.toHEXA().toString(), instance );
 				editor.execute( 'fontcolorpicker', color.toHEXA().toString() );
 				closeUI();
 			} );
 
 			form.colorPickr.on( 'cancel', instance => {
-				console.log( 'cancel', instance );
 				editor.execute( 'fontcolorpicker', null );
 				closeUI();
 			} );
