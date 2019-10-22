@@ -10,8 +10,6 @@ export default class SimpleBoxEditing extends Plugin {
     }
 
     init() {
-        console.log( 'SimpleBoxEditing#init() got called' );
-
         this._defineSchema();
         this._defineConverters();
 

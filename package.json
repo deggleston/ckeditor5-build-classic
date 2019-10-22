@@ -1,6 +1,6 @@
 {
   "name": "@deggleston/ckeditor5-build-t3custom",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A modded version of the classic editor build of CKEditor 5 – the best browser-based rich text editor.",
   "keywords": [
     "ckeditor5-build",

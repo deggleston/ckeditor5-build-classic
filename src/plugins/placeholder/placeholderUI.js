@@ -7,8 +7,6 @@ import Model from '@ckeditor/ckeditor5-ui/src/model';
 
 export default class PlaceholderUI extends Plugin {
     init() {
-        console.log( 'PlaceholderUI#init() got called' );
-
         const editor = this.editor;
         const t = editor.t;
         const placeholderNames = editor.config.get( 'placeholderConfig.types' );

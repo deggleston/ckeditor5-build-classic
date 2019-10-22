@@ -20,8 +20,6 @@ export default class BGColorPickerUI extends Plugin {
 	}
 
 	init() {
-		console.log( 'BGColorPickerUI#init() got called' );
-
 		const editor = this.editor;
 		const command = editor.commands.get( 'bgcolorpicker' );
 		const t = editor.t;
@@ -123,13 +121,11 @@ export default class BGColorPickerUI extends Plugin {
 			} );
 
 			form.colorPickr.on( 'save', ( color, instance ) => {
-				console.log( 'save', color, color.toHEXA().toString(), instance );
 				editor.execute( 'bgcolorpicker', color.toHEXA().toString() );
 				closeUI();
 			} );
 
 			form.colorPickr.on( 'cancel', instance => {
-				console.log( 'cancel', instance );
 				editor.execute( 'bgcolorpicker', null );
 				closeUI();
 			} );

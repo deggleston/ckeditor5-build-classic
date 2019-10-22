@@ -3,8 +3,6 @@ import FontColorPickerCommand from './fontcolorpickerCommand';
 
 export default class FontColorPickerEditing extends Plugin {
 	init() {
-		console.log( 'FontColorPickerEditing#init() got called' );
-
 		this._defineSchema();
 		this._defineConverters();
 
