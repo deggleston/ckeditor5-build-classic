@@ -1,0 +1,8 @@
+.bg-color-picker .pcr-app {
+    margin: 10px 10px 0px 10px!important;
+    box-shadow: none!important;
+}
+
+.bg-color-picker .pickr {
+    display: none;
+}

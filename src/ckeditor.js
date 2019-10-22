@@ -30,9 +30,12 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 
 import Font from '@ckeditor/ckeditor5-font/src/font';
 
-//import InsertImage from './plugins/insertImage'
-//import SimpleBox from './plugins/simpleBox/simpleBox';
-//import Placeholder from './plugins/placeholder/placeholder';
+// import InsertImage from './plugins/insertImage'
+// import SimpleBox from './plugins/simpleBox/simpleBox';
+// import Placeholder from './plugins/placeholder/placeholder';
+
+import FontColorPicker from './plugins/fontcolorpicker/fontcolorpicker';
+import BGColorPicker from './plugins/bgcolorpicker/bgcolorpicker';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -59,7 +62,9 @@ ClassicEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	Font
+	Font,
+	FontColorPicker,
+	BGColorPicker
 ];
 
 // Editor configuration.
@@ -72,8 +77,8 @@ ClassicEditor.defaultConfig = {
 			'italic',
 			'fontSize',
 			'fontFamily',
-			'fontColor',
-			'fontBackgroundColor',
+			'fontcolorpicker',
+			'bgcolorpicker',
 			'link',
 			'bulletedList',
 			'numberedList',
@@ -102,9 +107,18 @@ ClassicEditor.defaultConfig = {
 			'mergeTableCells'
 		]
 	},
-	//placeholderConfig: {
-	//	types: [ 'date', 'color', 'first name', 'surname' ]                             // ADDED
-	//},
+	// placeholderConfig: {
+	// 	types: [ 'date', 'color', 'first name', 'surname' ]                             // ADDED
+	// },
+
+	fontcolorConfig: {
+		defaultColor: '#000000'
+	},
+
+	bgcolorConfig: {
+		defaultColor: '#FFFFFF'
+	},
+
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };
